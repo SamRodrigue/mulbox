@@ -3,10 +3,17 @@ head
   title Mulbox
   link(rel='stylesheet' type='text/css' href='stylesheets/style.css')
   link(rel='stylesheet' href='https://use.fontawesome.com/releases/v5.4.1/css/all.css' integrity='sha384-5sAR7xN1Nv6T6+dT2mhtzEpVJvfS3NScPQTrOxhwjIuvcA67KV2R5Jz6kr4abQsz' crossorigin='anonymous')
+  script(src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.slim.min.js')
+  script(src='/javascripts/mulbox.js')
 h1 Mulbox
+#test
+  button#addBox
+    i.fas.fa-plus
+  button#removeBox
+    i.fas.fa-minus
 div
   .wrapper
-    div
-      textarea.autoExpand(maxlength='140' rows='10' cols='30' data-min-rows='2' placeholder='Write some shit here! ')
+    #mulboxes
+      textarea#1.mulbox(maxlength='140' rows='10' cols='30' placeholder='Write some shit here! ')
     button.btn
       i.fas.fa-copy
