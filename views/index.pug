@@ -1,5 +1,12 @@
-extends layout
-
-block content
-  h1= title
-  p Welcome to #{title}
+doctype html
+head
+  title Mulbox
+  link(rel='stylesheet' type='text/css' href='stylesheets/style.css')
+  link(rel='stylesheet' href='https://use.fontawesome.com/releases/v5.4.1/css/all.css' integrity='sha384-5sAR7xN1Nv6T6+dT2mhtzEpVJvfS3NScPQTrOxhwjIuvcA67KV2R5Jz6kr4abQsz' crossorigin='anonymous')
+h1 Mulbox
+div
+  .wrapper
+    div
+      textarea.autoExpand(maxlength='140' rows='10' cols='30' data-min-rows='2' placeholder='Write some shit here! ')
+    button.btn
+      i.fas.fa-copy
