@@ -1,3 +1,4 @@
+/* centers all base elements and adds color */
 body{
 	background: #d2e1c8;
 	display: flex;
@@ -5,6 +6,8 @@ body{
 	flex-direction: column;
 }
 
+
+/* only for banner header 'Mulbox' might conflict later */
 h1{
 	font-family: Tahoma;
 	font-size: 30px;
@@ -12,6 +15,7 @@ h1{
 	letter-spacing: .02em;
 }
 
+/* Global textarea style */
 textarea{
 	border-color: #FFFFFF;
 	border-radius: 6px;
@@ -20,26 +24,53 @@ textarea{
 	resize: none;
 }
 
+/* ------------------------Buttons------------------------*/
+
+/* Global button style */
 .btn{
 	border:none;
-	padding: 12px 16px;
 	font-size: 16px;
 	cursor:pointer;
-	margin: .5em;
-	position: absolute;
-	flex-direction: row;
-	bottom: .3em;
-	right: .3em;
 	background-color:#FFFFFF;
 	border-radius: 5%;
 	
 }
 
-.btn:hover{
+/* Style for the Copy to clipboard button */
+.btnCopy{
+	padding: 12px 16px;
+	margin: 1em;
+	position: absolute;
+	flex-direction: row;
+	bottom: .3em;
+	right: .3em;
+}
+
+.btnCopy:hover{
 	background-color:#808080; 
+}
+
+.btnPlusMinus{
+	margin: .2em;
+	border-radius: 20%;
+	background-color:#FFFFFF;
+	
+}
+
+.btnPlusMinus:hover{
+	background-color:#808080; 
+}
+
+
+/* ------------------------Wrappers------------------------s */
+
+
+.mulbox{
+	display: flex;
+	flex-direction: column;
+	margin: 1em;
 }
 
 .wrapper{
 	position: relative;
-	flex-direction: row;
 }
