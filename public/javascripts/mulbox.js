@@ -9,7 +9,7 @@ $(document).ready(function() {
     // Check if box exists
     if (!$box.length) {
       // Add a box
-      $("#mulboxes").append('<textarea class="mulbox" id="' + id + '" maxlength="140" rows="10" cols="30" placeholder="Write some shit here! "></textarea><button class="btn btnCopy"><i class="fas fa-copy"></i></button>');
+      $("#mulboxes").append('<div class="wrapper"><textarea class="mulbox" id="' + id + '" maxlength="140" rows="10" cols="30" placeholder="Write some shit here! "></textarea><button class="btn btnCopy"><i class="fas fa-copy"></i></button></div>');
     }
   }
 
