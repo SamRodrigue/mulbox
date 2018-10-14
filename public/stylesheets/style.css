@@ -26,12 +26,21 @@ body:hover::before{
 	-webkit-filter:blur(0px);
 }
 
+/* Mascot */
+
+.mascot{
+	height: 350px;
+	width: 350px;
+}
+
 /* only for banner header 'Mulbox' might conflict later */
 h1{
 	font-family: Tahoma;
-	font-size: 30px;
+	font-size: 60px;
 	color: #efecec;
 	letter-spacing: .02em;
+	text-transform: uppercase;
+
 }
 
 /* Global textarea style */
@@ -71,7 +80,8 @@ textarea{
 .btnPlusMinus{
 	margin: .2em;
 	border-radius: 20%;
-	background-color:#FFFFFF;	
+	background-color:#FFFFFF;
+	z-index: ;	
 }
 
 .btnPlusMinus:hover{
@@ -152,7 +162,7 @@ textarea{
 
 .modalHeader{
 	padding: 2px 16px;
-	background-color: #fee4a6;
+	background-color: #62a388;
 	color: #555555;
 }
 
@@ -162,6 +172,10 @@ textarea{
 
 .modalFooter{
 	padding: 2px 16px;
-	background-color:  #fee4a6;
+	background-color:  #62a388;
 	color:white;
 }
+
+/* ------------------------Modal end------------------------ */
+
+
