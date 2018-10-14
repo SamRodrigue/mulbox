@@ -1,19 +1,40 @@
 doctype html
 head
   title Mulbox
+  <link rel="icon" type="image/x-icon" href="/images/favicon.ico" />
   link(rel='stylesheet' type='text/css' href='stylesheets/style.css')
   link(rel='stylesheet' href='https://use.fontawesome.com/releases/v5.4.1/css/all.css' integrity='sha384-5sAR7xN1Nv6T6+dT2mhtzEpVJvfS3NScPQTrOxhwjIuvcA67KV2R5Jz6kr4abQsz' crossorigin='anonymous')
   script(src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.slim.min.js')
   script(src='/javascripts/mulbox.js')
 h1 Mulbox
+
+// modal button
+
+button.btn.btnModal#btnModal Switch Modes!
+
+.modal#modal
+  .modalContent
+    .modalHeader
+      span.close &times;
+      h2 Switch Modes!
+    .modalBtns
+      button.btn Imgur 
+      button.btn Twitter
+    .modalFooter
+      h3 About? 
+    
+
+
+
+//testing adding/removing textarea
 .btnTest#test
   button.btn.btnPlusMinus#addBox
     i.fas.fa-plus
   button.btn.btnPlusMinus#removeBox
     i.fas.fa-minus
 
-  .wrapper
-    #mulboxes
-      textarea#1.mulbox(maxlength='140' rows='10' cols='30' placeholder='Write some shit here! ')
+.wrapper
+  #mulboxes
+    textarea#1.mulbox(maxlength='140' rows='10' cols='30' placeholder='Write some shit here! ')
     button.btn.btnCopy
       i.fas.fa-copy
