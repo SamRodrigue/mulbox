@@ -34,12 +34,7 @@ $(document).ready(function() {
     var boxes = $(".mulbox").length
     removeBox(boxes);
   });
-});
-
-
-
 //Modal 
-$(document).ready(function() {
   var modal = document.getElementById('modal');
 
   var btnModal = document.getElementById('btnModal');
