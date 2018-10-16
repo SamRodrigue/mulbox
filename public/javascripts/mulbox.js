@@ -56,6 +56,7 @@ $(document).ready(function() {
   }
 });
 
+// Slider button style
 window.onload=function(){ 
   var toggle = document.getElementById('toggleBtnWrapper');
   var toggleWrap = document.getElementById('toggleBtnWrapper-2');

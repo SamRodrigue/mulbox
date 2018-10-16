@@ -20,6 +20,7 @@ body::before{
 	filter: blur(8px);
 	-webkit-filter:blur(8px);
 	transition: all 1000ms;
+	position: static;
 }
 
 body:hover::before{
@@ -48,7 +49,8 @@ textarea{
 /* Mascot */
 
 .mascot{
-	position: absolute
+	position: absolute;
+	z-index: 1;
 }
 
 
@@ -101,6 +103,7 @@ textarea{
 	flex-direction: column;
 	position: absolute;
 	margin: 0;
+	z-index: 1;
 }
 
 /* btntest div contains plus and minus buttons and centers them */
@@ -185,32 +188,26 @@ textarea{
 /* ------------------------Modal end------------------------ */
 
 /* Slider button */
-
-a {
-	text-decoration: none;
-	opacity: .6;
-	padding: 60px;
-	font-weight: bolder;
-	position: absolute;
-	right: 0px;
-	bottom: 0px;
-	font-size: 1.4em;
-}
-
 .togStyle{
 	text-decoration: none;
 	font-family: Asap, sans-serif;
 }
 
+
+
 #toggleBtnWrapper{
 	width: 160px;
 	height: 36px;
 	margin: 1em;
-	position: relative;
+	position: fixed;
 	border-radius: 6px;
 	overflow: hidden;
 	user-select: none;
 	cursor: pointer;
+	z-index: 1;
+	top: 1rem;
+	left: 1rem;
+
 }
 
 .toggleBtnWrapper-2{
