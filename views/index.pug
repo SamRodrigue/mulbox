@@ -2,6 +2,7 @@ doctype html
 head
   title Mulbox
   link(href="http://overpass-30e2.kxcdn.com/overpass.css" rel="stylesheet")
+  link(href="https://fonts.googleapis.com/css?family=Asap" rel="stylesheet")
   link(rel="icon" type="image/x-icon" href="/images/favicon.ico")
   link(rel='stylesheet' type='text/css' href='stylesheets/style.css')
   link(rel='stylesheet' href='https://use.fontawesome.com/releases/v5.4.1/css/all.css' integrity='sha384-5sAR7xN1Nv6T6+dT2mhtzEpVJvfS3NScPQTrOxhwjIuvcA67KV2R5Jz6kr4abQsz' crossorigin='anonymous')
@@ -9,31 +10,37 @@ head
   script(src='/javascripts/mulbox.js')
 
 img.mascot(src='/images/mascot.png')
+
+
 .vanity
   
+  h1.mulboxTitle Mulbox
+  
+  #toggleBtnWrapper
+    .toggleBtnWrapper-2
+      .toggle
+        p.togStyle Imgur
+      .toggle
+        p.togStyle Twitter
+    .toggleBtnWrapper-2#toggleBtnWrapper-2
+      .toggle
+        p.togStyle Imgur
+      .toggle
+        p.togStyle twitter
 
-
-  h1 Mulbox
-
-  // modal button
-
-  button.btn.btnModal#btnModal Switch Modes!
-
+  // About modal btn
+  button.btn.btnModal#btnModal About Mulbox
+   // About modal content
   .modal#modal
     .modalContent
       .modalHeader
         span.close &times;
-        h2 Switch Modes!
+        h2 About 
       .modalBtns
-        button.btn Imgur 
-        button.btn Twitter
-          i.fab.fa-twitter-square
+        p Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed efficitur cursus metus molestie dapibus. Mauris ut velit lorem. Nunc a diam dolor. Maecenas velit libero, sagittis vel lobortis et, porttitor vitae orci. Phasellus et felis nec est lacinia viverra ac et odio. Pellentesque mattis dignissim tortor eget imperdiet. Nulla sit amet tortor quis justo facilisis accumsan id consectetur neque. Ut quis lorem nec velit efficitur efficitur. Pellentesque bibendum sapien in nibh volutpat vestibulum. Donec placerat nec dui non pulvinar.
       .modalFooter
-        h3 About? 
+        h3 git link
       
-
-
-
   //testing adding/removing textarea
   .btnTest#test
     button.btn.btnPlusMinus#addBox

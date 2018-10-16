@@ -55,3 +55,21 @@ $(document).ready(function() {
     }
   }
 });
+
+window.onload=function(){ 
+  var toggle = document.getElementById('toggleBtnWrapper');
+  var toggleWrap = document.getElementById('toggleBtnWrapper-2');
+  var toggleNumber;
+
+  toggle.addEventListener('click', function() {
+    toggleNumber = !toggleNumber;
+    if(toggleNumber) {
+      toggleWrap.style.clipPath = 'inset(0 0 0 50%)';
+      toggleWrap.style.backgroundColor = '#89C623';
+      } else {
+        toggleWrap.style.clipPath = 'inset(0 50% 0 0)';
+        toggleWrap.style.backgroundColor = '#0084b4';
+      }
+    console.log(toggleNumber)
+   });
+  };
