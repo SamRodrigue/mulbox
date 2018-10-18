@@ -3,16 +3,44 @@ var charLimit = 10;
   .ready waits for the DOM to be fully loaded
 */
 $(document).ready(function() {
+  // mulbox key listener
+  $("#mulboxes").keypress(".mulbox", function(event) {
+    var box = event.originalEvent.target;
+    var id = box.id;
+    var chars = box.value;
+    var words = chars.split(" ");
+
+    if (event.keyCode === 0) {
+      event.preventDefault();
+      box.value = chars + event.key;
+    }
+
+    var newChars = box.value;
+    var newWords = chars.split(" ");
+
+    console.log("id:" + id + " chars:" + newChars.length + " words:" + newWords.length);
+  });
+
   // Add box
   function addBox(id) {
     // Get the next box
     var $box = $("#" + id);
 
     // Check if box exists
-    if (!$box.length) {
+    if ($box.length === 0) {
       // Add a box
-      $("#mulboxes").append('<div class="wrapper"><textarea class="mulbox" id="' + id + '" maxlength="140" rows="10" cols="30" placeholder="Write some shit here! "></textarea><button class="btn btnCopy"><i class="fas fa-copy"></i></button></div>');
+      $box = $("#mulboxes").append(`
+      <div class="mulboxWrapper">
+        <textarea class="mulbox" id="` + id + `" maxlength="140" rows="10" cols="30" placeholder="Write some shit here! "></textarea>
+        <button class="btn btnCopy">
+          <i class="fas fa-copy"></i>
+        </button>
+      </div>`); 
+    } else if ($box.length > 1) {
+      alert("ERROR: Multitple mulboxes with id:" + id + " exist");
     }
+
+    return $box;
   }
 
   // Remove box
@@ -23,7 +51,9 @@ $(document).ready(function() {
     // Check if box exists
     if ($box.length === 1) {
       // Add a box
-      $box.remove();
+      $box.parent(".mulboxWrapper").remove();
+    } else {
+      alert("ERROR: Multitple mulboxes with id:" + id + " exist");
     }
   }
 
@@ -36,6 +66,7 @@ $(document).ready(function() {
     var boxes = $(".mulbox").length
     removeBox(boxes);
   });
+
 //Modal 
   var modal = document.getElementById('modal');
   var btnModal = document.getElementById('btnModal');
