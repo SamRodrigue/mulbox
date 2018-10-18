@@ -187,13 +187,7 @@ textarea{
 
 /* ------------------------Modal end------------------------ */
 
-/* Slider button */
-.togStyle{
-	text-decoration: none;
-	font-family: Asap, sans-serif;
-}
-
-
+/* ------------------------Slider button------------------------ */
 
 #toggleBtnWrapper{
 	width: 160px;
@@ -207,7 +201,8 @@ textarea{
 	z-index: 1;
 	top: 1rem;
 	left: 1rem;
-
+	text-decoration: none;
+	font-family: Asap, sans-serif;
 }
 
 .toggleBtnWrapper-2{
@@ -246,3 +241,4 @@ textarea{
 .toggle:nth-child(1){
 	right: 0;
 }
+/* ------------------------Slider button end------------------------ */

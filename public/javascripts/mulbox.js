@@ -1,5 +1,7 @@
 var charLimit = 10;
-
+/* w/o jQuery window.onload=function()
+  .ready waits for the DOM to be fully loaded
+*/
 $(document).ready(function() {
   // Add box
   function addBox(id) {
@@ -36,28 +38,26 @@ $(document).ready(function() {
   });
 //Modal 
   var modal = document.getElementById('modal');
-
   var btnModal = document.getElementById('btnModal');
-
   var span = document.getElementsByClassName('close')[0];
 
+// calls the modal
   btnModal.onclick = function() {
     modal.style.display = "block";
   };
 
+// closes the modal
   span.onclick = function() {
     modal.style.display = 'none';
   }
-
+// If user click outside modal it will close
   window.onclick = function(event) {
     if (event.target == modal) {
       modal.style.display = 'none';
     }
   }
-});
-
 // Slider button style
-window.onload=function(){ 
+
   var toggle = document.getElementById('toggleBtnWrapper');
   var toggleWrap = document.getElementById('toggleBtnWrapper-2');
   var toggleNumber;
@@ -73,4 +73,4 @@ window.onload=function(){
       }
     console.log(toggleNumber)
    });
-  };
+});
