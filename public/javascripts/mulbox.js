@@ -4,21 +4,13 @@ var charLimit = 10;
 */
 $(document).ready(function() {
   // mulbox key listener
-  $("#mulboxes").keypress(".mulbox", function(event) {
+  $("#mulboxes").on("input", ".mulbox", function(event) {
     var box = event.originalEvent.target;
     var id = box.id;
     var chars = box.value;
     var words = chars.split(" ");
 
-    if (event.keyCode === 0) {
-      event.preventDefault();
-      box.value = chars + event.key;
-    }
-
-    var newChars = box.value;
-    var newWords = chars.split(" ");
-
-    console.log("id:" + id + " chars:" + newChars.length + " words:" + newWords.length);
+    console.log("id:" + id + " chars:" + chars.length + " words:" + words.length);
   });
 
   // Add box
