@@ -8,8 +8,8 @@ head
   link(rel='stylesheet' href='https://use.fontawesome.com/releases/v5.4.1/css/all.css' integrity='sha384-5sAR7xN1Nv6T6+dT2mhtzEpVJvfS3NScPQTrOxhwjIuvcA67KV2R5Jz6kr4abQsz' crossorigin='anonymous')
   script(src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.slim.min.js')
   script(src='/javascripts/mulbox.js')
-
-img.mascot(src='/images/mascot.png')
+  script(src='https://cdn.jsdelivr.net/npm/clipboard@2/dist/clipboard.min.js')
+  img.mascot(src='/images/mascot.png')
 
 
 .vanity
@@ -50,7 +50,6 @@ img.mascot(src='/images/mascot.png')
 
   .wrapper
     #mulboxes
-      .mulboxWrapper
-        textarea#1.mulbox(maxlength='140' rows='10' cols='30' placeholder='Write some shit here! ')
-        button.btn.btnCopy
-          i.fas.fa-copy
+      textarea#1.mulbox(maxlength='140' rows='10' cols='30' placeholder='Write some shit here! ')
+      button.btn.btnCopy(data-clipboard-action="copy" data-clipboard-target=".mulbox")
+        i.fas.fa-copy

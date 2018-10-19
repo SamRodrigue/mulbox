@@ -104,4 +104,17 @@ $(document).ready(function() {
       }
     console.log(toggleNumber)
    });
+
+   var clipboard = new ClipboardJS('.btnCopy');
+
+   
+   clipboard.on('success', function(e) {
+      console.log(e);
+    });
+
+    clipboard.on('error', function(e) {
+      console.log(e);
+    });
+
+
 });
