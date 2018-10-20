@@ -47,9 +47,16 @@ head
       i.fas.fa-plus
     button.btn.btnPlusMinus#removeBox
       i.fas.fa-minus
+    button.btn.btnPlusMinus#addBox2
+      i.fas.fa-plus
+        span 2
+    button.btn.btnPlusMinus#removeBox2
+      i.fas.fa-minus
+        span 2
 
   .wrapper
     #mulboxes
-      textarea#1.mulbox(maxlength='140' rows='10' cols='30' placeholder='Write some shit here! ')
-      button.btn.btnCopy(data-clipboard-action="copy" data-clipboard-target=".mulbox")
-        i.fas.fa-copy
+     .mulboxWrapper
+        textarea#1.mulbox(maxlength='140' rows='10' cols='30' placeholder='Write some shit here! ')
+        button.btn.btnCopy(data-clipboard-action="copy" data-clipboard-target=".mulbox")
+          i.fas.fa-copy

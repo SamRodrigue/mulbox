@@ -15,40 +15,99 @@ $(document).ready(function() {
 
   // Add box
   function addBox(id) {
-    // Get the next box
-    var $box = $("#" + id);
+    // Box id 1 should not be altered
+    if (id === 1) {
+      console.log("ERROR: Attempting to add mulbox with id:" + id);
+      return;
+    }
+
+    // Get the mulbox
+    var $box = checkBox(id);
+    var $above = getBox(id - 1);
+
+    if ($above === null) {
+      // TODO RECOVERY: Find next above box, change id to above + 1;
+      console.log("ERROR: Unable to add mulbox with id:" + id + ", no above mulbox with id:" + (id - 1));
+
+      return null;
+    }
 
     // Check if box exists
-    if ($box.length === 0) {
-      // Add a box
-      $box = $("#mulboxes").append(`
-      <div class="mulboxWrapper">
-        <textarea class="mulbox" id="` + id + `" maxlength="140" rows="10" cols="30" placeholder="Write some shit here! "></textarea>
-        <button class="btn btnCopy">
-          <i class="fas fa-copy"></i>
-        </button>
-      </div>`); 
-    } else if ($box.length > 1) {
-      alert("ERROR: Multitple mulboxes with id:" + id + " exist");
+    if ($box !== null) {
+      // mulbox with id already exists, shift existing boxes down
+      var $mulboxes = $(".mulbox");
+
+      for (var i = id; i <= $mulboxes.length; ++i) {
+        $mulboxes[i - 1].id = i + 1;
+      }
     }
+
+    // Add a box
+    $box = $above.parent(".mulboxWrapper").after(`
+    <div class="mulboxWrapper">
+      <textarea class="mulbox" id="` + id + `" maxlength="140" rows="10" cols="30" placeholder="Write some shit here! "></textarea>
+      <button class="btn btnCopy">
+        <i class="fas fa-copy"></i>
+      </button>
+    </div>`);
 
     return $box;
   }
 
   // Remove box
   function removeBox(id) {
-    // Get the next box
+    // Box id 1 should not be altered
+    if (id === 1) {
+      console.log("ERROR: Attempting to add mulbox with id:" + id);
+      return;
+    }
+
+    // Get the mulbox
+    var $box = getBox(id);
+
+    if ($box !== null) {
+      // Remove parent
+      $box.parent(".mulboxWrapper").remove();
+
+      // Shift remaining mulboxes up
+      var $mulboxes = $(".mulbox");
+
+      for (var i = id; i <= $mulboxes.length; ++i) {
+        $mulboxes[i - 1].id = i;
+      }
+    }
+  }
+
+  function getBox(id) {
+    var $box = $("#" + id);
+
+    // Check if box exists
+    if ($box.length > 1) {
+      // More than one box
+      console.log("ERROR: Multitple mulboxes with id:" + id + " exist");
+    } else if ($box.length === 0) {
+      // No box with id found
+      console.log("ABN: Zero mulboxes found with id:" + id + " exists");
+    } else {
+      return $box;
+    }
+
+    // NOK
+    return null;
+  }
+
+  function checkBox(id) {
     var $box = $("#" + id);
 
     // Check if box exists
     if ($box.length === 1) {
-      // Add a box
-      $box.parent(".mulboxWrapper").remove();
-    } else {
-      alert("ERROR: Multitple mulboxes with id:" + id + " exist");
+      return $box;
     }
+
+    return null;
   }
 
+  // Test buttons to add and remove mulboxes
   $("#addBox").click(function(event) {
     var boxes = $(".mulbox").length
     addBox(boxes + 1);
@@ -57,6 +116,16 @@ $(document).ready(function() {
   $("#removeBox").click(function(event) {
     var boxes = $(".mulbox").length
     removeBox(boxes);
+  });
+
+  $("#addBox2").click(function(event) {
+    var boxes = $(".mulbox").length
+    addBox(2);
+  });
+
+  $("#removeBox2").click(function(event) {
+    var boxes = $(".mulbox").length
+    removeBox(2);
   });
 
 //Modal 
