@@ -1,4 +1,4 @@
-var charLimit = 10;
+var charLimit = 32;
 /* w/o jQuery window.onload=function()
   .ready waits for the DOM to be fully loaded
 */
@@ -9,8 +9,65 @@ $(document).ready(function() {
     var id = box.id;
     var chars = box.value;
     var words = chars.split(" ");
+    var cursor = box.selectionEnd;
 
     console.log("id:" + id + " chars:" + chars.length + " words:" + words.length);
+
+    // Check if characters exceeds limits
+    // TODO: Account for page numbering
+    if (chars.length > charLimit) {
+      console.log("number of characters exceeded in mulbox id:" + id);
+      
+      // Determine which characters need to move to the next box
+      var move = "";
+      var fullWord = true;
+      // Special case if the first word exceeds the character limit
+      if (words[0].length > charLimit) {
+        fullWord = false;
+        move = chars.substring(charLimit, chars.length);
+      } else {
+        // Starting at charLimit back track to previous ' '
+        for (var cut = charLimit; cut >= 0; --cut) {
+          var char = chars[cut];
+          if (char === ' ') {
+            move = chars.substring(cut + 1, chars.length);
+            break;
+          }
+        }
+      }
+
+      // Trim current box
+      console.log("Trim chars:" + chars.length + " move:" + move.length);
+      if (fullWord) {
+        box.value = chars.substring(0, chars.length - move.length - 1);
+      } else {
+        box.value = chars.substring(0, chars.length - move.length);
+      }
+
+      // Check if next box is available
+      var nextid = parseInt(id) + 1;
+      if (!checkBox(nextid)) {
+        addBox(nextid);
+      }
+      var next = getBox(nextid);
+
+      if (next.val().length === 0) {
+        next.val(move);
+      } else {
+        next.val(move + " " + next.val());
+      }
+
+      // Move cursor
+      // Check if cursor is at the end of text area
+      if (cursor >= box.value.length) {
+        next[0].focus();
+        next[0].selectionEnd = move.length;
+      } else {
+        box.selectionEnd = cursor;
+      }
+    } else {
+      // Check if first word from next box can be brought to the current box
+    }
   });
 
   // Add box
@@ -84,7 +141,7 @@ $(document).ready(function() {
     // Check if box exists
     if ($box.length > 1) {
       // More than one box
-      console.log("ERROR: Multitple mulboxes with id:" + id + " exist");
+      console.log("ERROR: Multiple mulboxes with id:" + id + " exist");
     } else if ($box.length === 0) {
       // No box with id found
       console.log("ABN: Zero mulboxes found with id:" + id + " exists");
