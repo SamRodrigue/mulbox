@@ -89,11 +89,6 @@ $(document).ready(function() {
       return null;
     }
 
-    //converts id to base 16 hexadecimal unicode needed for copy function
-    var id_string = String(id);
-    var hex = id_string.charCodeAt(0).toString(16);
-    var uni_id =  "\\".substring(0, 4 - hex.length) + hex;
-
     // Check if box exists
     if ($box !== null) {
       // mulbox with id already exists, shift existing boxes down
@@ -104,11 +99,29 @@ $(document).ready(function() {
       }
     }
 
+    //converts id to base 16 hexadecimal unicode needed for copy function
+    //breaks if id is > 99
+    function getUniId(id){
+      var idString = String(id);
+      if (id > 9 ) {
+        let splitId = idString.split('')
+          let splitId_1 = splitId.slice(0,1).toString().charCodeAt(0).toString(16)
+          console.log(splitId_1);
+          let splitId_2 = splitId.slice(1,2).toString().charCodeAt(0).toString(16)
+          console.log(splitId_2);
+        var idHex = splitId_1 + "//" + splitId_2
+        return "//" + idHex;
+      }else{
+        var idHex = idString.charCodeAt(0).toString(16)
+        return "//" + idHex;
+      }
+    };
+    var uniId = getUniId(id);
     // Add a box
     $box = $above.parent(".mulboxWrapper").after(`
     <div class="mulboxWrapper">
       <textarea class="mulbox" id="` + id + `" maxlength="140" rows="10" cols="30" placeholder="Write some shit here! "></textarea>
-      <button class="btn btnCopy" data-clipboard-action="copy" data-clipboard-target="#`+ uni_id +`">
+      <button class="btn btnCopy" data-clipboard-action="copy" data-clipboard-target="#`+ uniId +`">
         <i class="fas fa-copy"></i>
       </button>
     </div>`);
