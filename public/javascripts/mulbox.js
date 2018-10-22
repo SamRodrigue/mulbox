@@ -89,6 +89,11 @@ $(document).ready(function() {
       return null;
     }
 
+    //converts id to base 16 hexadecimal unicode needed for copy function
+    var id_string = String(id);
+    var hex = id_string.charCodeAt(0).toString(16);
+    var uni_id =  "\\".substring(0, 4 - hex.length) + hex;
+
     // Check if box exists
     if ($box !== null) {
       // mulbox with id already exists, shift existing boxes down
@@ -103,7 +108,7 @@ $(document).ready(function() {
     $box = $above.parent(".mulboxWrapper").after(`
     <div class="mulboxWrapper">
       <textarea class="mulbox" id="` + id + `" maxlength="140" rows="10" cols="30" placeholder="Write some shit here! "></textarea>
-      <button class="btn btnCopy">
+      <button class="btn btnCopy" data-clipboard-action="copy" data-clipboard-target="#`+ uni_id +`">
         <i class="fas fa-copy"></i>
       </button>
     </div>`);
