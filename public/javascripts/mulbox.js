@@ -103,17 +103,17 @@ $(document).ready(function() {
     //breaks if id is > 99
     function getUniId(id){
       var idString = String(id);
-      if (id > 9 ) {
+      if (id > 99){
+        console.log("ERROR: Added mulbox with id over 99 copy function will not work");
+      }else if (id > 9 ) {
         let splitId = idString.split('')
           let splitId_1 = splitId.slice(0,1).toString().charCodeAt(0).toString(16)
-          console.log(splitId_1);
           let splitId_2 = splitId.slice(1,2).toString().charCodeAt(0).toString(16)
-          console.log(splitId_2);
-        var idHex = splitId_1 + "//" + splitId_2
-        return "//" + idHex;
+        var idHex = "\\" + splitId_1 + "\\" + splitId_2
+        return idHex;
       }else{
         var idHex = idString.charCodeAt(0).toString(16)
-        return "//" + idHex;
+        return "\\" + idHex;
       }
     };
     var uniId = getUniId(id);
