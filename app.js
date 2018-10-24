@@ -37,5 +37,9 @@ app.use(function(err, req, res, next) {
   res.status(err.status || 500);
   res.render('error');
 });
+// renders pug files in pretty print for development
+if (app.get('env') === 'development') {
+  app.locals.pretty = true;
+}
 
 module.exports = app;
