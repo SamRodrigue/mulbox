@@ -10,8 +10,8 @@ body{
 /* pseudo element before body injects the background image */ 
 body::before{
 	content:'';
-	height: 150vh;
-	width: 150%;
+	height: 100vh;
+	width: 100%;
 	background-image: url(/images/hipsterbackground.jpg);
 	background-size: cover;
 	background-repeat: no-repeat;
@@ -99,7 +99,7 @@ textarea{
 
 /* ------------------------Wrappers------------------------ */
 
-.parentMulboxWrapper{
+.vanity{
 	display: flex;
 	align-items: center;
 	flex-direction: column;
@@ -119,7 +119,11 @@ textarea{
 	margin: 1em;
 }
 
-.mulboxWrapper, .mainMulboxWrapper{
+.mulboxWrapper{
+	position: relative;
+}
+
+.wrapper{
 	position: relative;
 }
 
