@@ -113,12 +113,12 @@ $(document).ready(function() {
     var uniId = getUniId(id);
     // Add a box
     $box = $above.parent(".mulboxWrapper").after(`
-    <div class="mulboxWrapper">
-      <textarea class="mulbox" id="` + id + `" maxlength="140" rows="10" cols="30" placeholder="Write some shit here! "></textarea>
-      <button class="btn btnCopy" data-clipboard-action="copy" data-clipboard-target="#`+ uniId +`">
-        <i class="fas fa-copy"></i>
-      </button>
-    </div>`);
+      <div class="mulboxWrapper">
+        <textarea class="mulbox" id="` + id + `" maxlength="140" rows="10" cols="30" placeholder="Write some shit here! "></textarea>
+        <button class="btn btnCopy" data-clipboard-action="copy" data-clipboard-target="#`+ uniId +`">
+          <i class="fas fa-copy"></i>
+        </button>
+      </div>`);
 
     return $box;
   }

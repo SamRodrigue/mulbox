@@ -9,6 +9,7 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.slim.min.js"></script>
   <script src="/javascripts/mulbox.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/clipboard@2/dist/clipboard.min.js"></script>
+  <!--img.mascot(src='/images/mascot.png')-->
 </head>
 <div class="testflex">
   <div id="toggleBtnWrapper">
@@ -30,25 +31,8 @@
     </div>
   </div>
 </div>
-<div class="vanity"><img class="mascot" src="/images/mascot.png">
+<div class="vanity">
   <h1 class="mulboxTitle">Mulbox</h1>
-  <!-- About modal btn-->
-  <button class="btn btnModal" id="btnModal">About
-    <!-- About modal content-->
-  </button>
-  <div class="modal" id="modal">
-    <div class="modalContent">
-      <div class="modalHeader"><span class="close">&times;</span>
-        <h2>Mulbox </h2>
-      </div>
-      <div class="modalBtns">
-        <p>Mulbox is a text manager for social media platforms that splits the text for you as you type!</p>
-      </div>
-      <div class="modalFooter">
-        <h3><i class="fab fa-github"></i></h3>
-      </div>
-    </div>
-  </div>
   <!--testing adding/removing textarea-->
   <div class="btnTest" id="test">
     <button class="btn btnPlusMinus" id="addBox"><i class="fas fa-plus"></i></button>
@@ -56,12 +40,27 @@
     <button class="btn btnPlusMinus" id="addBox2"><i class="fas fa-plus"><span>2</span></i></button>
     <button class="btn btnPlusMinus" id="removeBox2"><i class="fas fa-minus"><span>2</span></i></button>
   </div>
-  <div class="wrapper">
-    <div id="mulboxes">
-      <div class="mulboxWrapper">
-        <textarea class="mulbox" id="1" maxlength="140" rows="10" cols="30" placeholder="Write some shit here! "></textarea>
-        <button class="btn btnCopy" data-clipboard-action="copy" data-clipboard-target="#\31"><i class="fas fa-copy"></i></button>
-      </div>
+</div>
+<div id="mulboxes">
+  <div class="mulboxWrapper">
+    <textarea class="mulbox" id="1" maxlength="140" rows="10" cols="30" placeholder="Write some shit here! "></textarea>
+    <button class="btn btnCopy" data-clipboard-action="copy" data-clipboard-target="#\31"><i class="fas fa-copy"></i></button>
+  </div>
+</div>
+<!-- About modal btn-->
+<button class="btn btnModal" id="btnModal">About
+  <!-- About modal content-->
+</button>
+<div class="modal" id="modal">
+  <div class="modalContent">
+    <div class="modalHeader"><span class="close">&times;</span>
+      <h2>Mulbox </h2>
+    </div>
+    <div class="modalBtns">
+      <p>Mulbox is a text manager for social media platforms that splits the text for you as you type!</p>
+    </div>
+    <div class="modalFooter">
+      <h3><i class="fab fa-github"></i></h3>
     </div>
   </div>
 </div>

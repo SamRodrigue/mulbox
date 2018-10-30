@@ -17,6 +17,7 @@ body::before{
 	-webkit-filter:blur(8px);
 	transition: all 1000ms;
 	position: static;
+	z-index: -2;
 }
 
 body:hover::before{
@@ -24,6 +25,7 @@ body:hover::before{
 	-webkit-filter:blur(0px);
 }
 */ 
+
 /* Global textarea style */
 textarea{
 	font-family: overpass;
@@ -48,12 +50,13 @@ textarea{
 
 .mascot{
 	display: flex;
+	flex-direction: column;
 	position: absolute;
 	z-index: -1;
 }
 
 
-/* ------------------------Buttons------------------------*/
+/* ------------------------ Buttons ------------------------*/
 
 /* Global button style */
 .btn{
@@ -67,12 +70,12 @@ textarea{
 /* Style for the Copy to clipboard button */
 .btnCopy{
 	padding: 12px 16px;
-	margin: 1em;
+	margin: 0 0 0 0;
 	position: absolute;
-	flex-direction: row;
-	bottom: .3em;
-	right: .3em;
+	bottom: 1.5em;
+	right: 1.2em;
 	background-color:rgba(255, 255, 255, 0);
+	display: flex;
 }
 
 .btnCopy:hover{
@@ -94,15 +97,15 @@ textarea{
 	background-color:#808080; 
 }
 
-/* ------------------------Wrappers------------------------ */
+/* ------------------------ Wrappers ------------------------ */
 
 .vanity{
-	height: 100vh;
+	height: 30%;
 	width: 100%;
 	display: flex;
 	align-items: center;
 	flex-direction: column;
-	position: absolute;
+	position: relative;
 	margin: 0;
 	z-index: 1;
 }
@@ -110,23 +113,28 @@ textarea{
 /* btntest div contains plus and minus buttons and centers them */
 .btnTest{
 	text-align: center;
+	margin:1em;
+}
+
+
+/* ------------------------ Mulboxes (textareas) ------------------------  */
+#mulboxes{
+	height: 60vh;
+	width: 100%;
+	display: flex;
+	justify-content: flex-start;
+	align-items: center;
+	flex-flow: column wrap;
+	z-index: 1;
 }
 
 .mulbox{
-	display: flex;
-	flex-direction: column;
 	margin: 1em;
 }
-
 .mulboxWrapper{
 	position: relative;
 }
-
-.wrapper{
-	position: relative;
-}
-
-/* ------------------------Modal------------------------ */
+/* ------------------------ Modal ------------------------ */
 
 .modal{
 	display: none;
@@ -185,15 +193,19 @@ textarea{
 	color:gray;
 }
 
-/* ------------------------Slider button------------------------ */
+.btnModal{
+
+	position: relative;
+	margin: 2em;
+}
+
+/* ------------------------ Slider button ------------------------ */
 .testflex{
-	height: 4em;
 	width: 100%;
 	display: flex;
 	justify-content: flex-end;
 	flex-direction: row;
 }
-
 
 #toggleBtnWrapper{
 	width: 160px;
@@ -245,4 +257,3 @@ textarea{
 .toggle:nth-child(1){
 	right: 0;
 }
-/* ------------------------Slider button end------------------------ */

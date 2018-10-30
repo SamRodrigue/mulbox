@@ -9,6 +9,9 @@ head
   script(src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.slim.min.js')
   script(src='/javascripts/mulbox.js')
   script(src='https://cdn.jsdelivr.net/npm/clipboard@2/dist/clipboard.min.js')
+
+  //img.mascot(src='/images/mascot.png')
+
 .testflex
   #toggleBtnWrapper
     .toggleBtnWrapper-2
@@ -23,22 +26,9 @@ head
         p twitter
 
 .vanity
-  img.mascot(src='/images/mascot.png')
+ 
+
   h1.mulboxTitle Mulbox
-  
-  // About modal btn
-  button.btn.btnModal#btnModal About
-   // About modal content
-  .modal#modal
-    .modalContent
-      .modalHeader
-        span.close &times;
-        h2 Mulbox 
-      .modalBtns
-        p Mulbox is a text manager for social media platforms that splits the text for you as you type!
-      .modalFooter
-        h3
-          i.fab.fa-github
 
   //testing adding/removing textarea
   .btnTest#test
@@ -53,9 +43,22 @@ head
       i.fas.fa-minus
         span 2
 
-  .wrapper
-    #mulboxes
-     .mulboxWrapper
-        textarea#1.mulbox(maxlength='140' rows='10' cols='30' placeholder='Write some shit here! ')
-        button.btn.btnCopy(data-clipboard-action="copy" data-clipboard-target="#\\31")
-          i.fas.fa-copy
+#mulboxes
+  .mulboxWrapper
+    textarea#1.mulbox(maxlength='140' rows='10' cols='30' placeholder='Write some shit here! ')
+    button.btn.btnCopy(data-clipboard-action="copy" data-clipboard-target="#\\31")
+      i.fas.fa-copy
+
+// About modal btn
+button.btn.btnModal#btnModal About
+  // About modal content
+.modal#modal
+  .modalContent
+    .modalHeader
+      span.close &times;
+      h2 Mulbox 
+    .modalBtns
+      p Mulbox is a text manager for social media platforms that splits the text for you as you type!
+    .modalFooter
+      h3
+        i.fab.fa-github
