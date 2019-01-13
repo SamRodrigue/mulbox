@@ -2,14 +2,65 @@ var charLimit = 32;
 /* w/o jQuery window.onload=function()
   .ready waits for the DOM to be fully loaded
 */
+
+var lastKey = null;
+
 $(document).ready(function() {
   // mulbox key listener
+
+  $("#mulboxes").on("keydown", ".mulbox", function(event) {
+    lastKey = event.keyCode;
+  });
+
+  $("#mulboxes").on("keyup", ".mulbox", function() {
+    lastKey = null;
+  });
+
   $("#mulboxes").on("input", ".mulbox", function(event) {
     var box = event.originalEvent.target;
     var id = box.id;
+
+    updateBox(id);
+  });
+
+  // Update box
+  function updateBox(id) {
+    // Get the mulbox
+    var box = getBox(id)[0];
+
     var chars = box.value;
-    var words = chars.split(" ");
+
+    if (chars.length === 0) {
+      if (id != 1) {
+        removeBox(id);
+      }
+      return;
+    }
+
     var cursor = box.selectionEnd;
+    console.log("Key code: " + lastKey);
+
+    if (lastKey === 8 && cursor === 0) { // Backspace
+      // Move cursor to previous box
+      if (id > 1) {
+        var previd = parseInt(id) - 1
+        var prev = getBox(previd)[0];
+        prev.focus();
+        prev.selectionEnd = prev.value.length;
+        prev.selectionStart = prev.value.length;
+        return;
+      }
+    }
+
+    // if (lastKey === 46 && cursor === box.value.length) { // Delete
+    //   // Check if next box is available
+    //   var nextid = parseInt(id) + 1;
+    //   if (checkBox(nextid)) {
+    //     var next = getBox(nextid)[0];
+    //   }
+    // }
+
+    var words = chars.split(" ");
 
     console.log("id:" + id + " chars:" + chars.length + " words:" + words.length);
 
@@ -65,10 +116,50 @@ $(document).ready(function() {
       } else {
         box.selectionEnd = cursor;
       }
+
+      updateBox(nextid);
+
     } else {
       // Check if first word from next box can be brought to the current box
+
+      // Check if next box is available
+      var nextid = parseInt(id) + 1;
+      if (!checkBox(nextid)) {
+        // No other boxes
+        return;
+      }
+      var next = getBox(nextid)[0];
+
+      // Get first word from next box
+      var nextChars = next.value;
+      var nextMove = "";
+
+      // Check if whole text can be taken from next box
+      if (chars.length + nextChars.length + 1 <= charLimit) {
+        box.value = box.value + " " + next.value;
+        next.value = "";
+        box.selectionEnd = cursor;
+
+        updateBox(nextid);        
+      } else {
+        for (var cut = charLimit - chars.length - 1; cut >= 0; --cut) {
+          var char = nextChars[cut];
+          if (char === ' ') {
+            nextMove = nextChars.substring(0, cut);
+            break;
+          }
+        }
+
+        if (nextMove.length > 0) {
+          box.value = box.value + " " + nextMove;
+          next.value = next.value.substring(cut + 1);
+          box.selectionEnd = cursor;
+
+          updateBox(nextid);
+        }
+      }
     }
-  });
+  }
 
   // Add box
   function addBox(id) {
