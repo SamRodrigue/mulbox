@@ -31,24 +31,11 @@ head
   h1.mulboxTitle Mulbox
 
   button.btn Compact Mode
-  //testing adding/removing textarea
-  //.btnTest#test
-    button.btn.btnPlusMinus#addBox
-      i.fas.fa-plus
-    button.btn.btnPlusMinus#removeBox
-      i.fas.fa-minus
-    button.btn.btnPlusMinus#addBox2
-      i.fas.fa-plus
-        span 2
-    button.btn.btnPlusMinus#removeBox2
-      i.fas.fa-minus
-        span 2
 
+#inboxes
+  .inboxWrapper
+    textarea#inbox(rows='10' cols='30' placeholder='Write some shit here! ')
 #mulboxes
-  .mulboxWrapper
-    textarea#1.mulbox(maxlength='140' rows='10' cols='30' placeholder='Write some shit here! ')
-    button.btn.btnCopy(data-clipboard-action="copy" data-clipboard-target="#\\31")
-      i.fas.fa-copy
 
 // About modal btn
 button.btn.btnModal#btnModal About
