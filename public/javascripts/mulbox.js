@@ -67,7 +67,7 @@ $(document).ready(function() {
 
 //Modal 
   var modal = document.getElementById('modal');
-  var btnModal = document.getElementById('btnModal');
+  var btnModal = document.getElementById('helpQuestion');
   var span = document.getElementsByClassName('close')[0];
 
 // calls the modal
@@ -113,4 +113,23 @@ $(document).ready(function() {
   clipboard.on('error', function(e) {
     console.log(e);
   });
+
+  var compactTogId = document.getElementById('compactTog');
+  var vanity = document.getElementById('vanity')
+  var togBtn = document.getElementById('togBtnFlexWrap')
+  var compactTogBool;
+
+  compactTogId.addEventListener('click', function(){
+    compactTogBool = !compactTogBool;
+    if(compactTogBool) {
+      vanity.style.transform = "translate(0, -8em)"
+      togBtn.style.postion = "static"
+    } else {
+      vanity.style.transfrom = "translate(0, 0em)"
+      togBtn.style.postion = "relative"
+    }
+    console.log(compactTogBool); 
+  });
+
+
 });

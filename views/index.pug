@@ -13,40 +13,45 @@ head
   //img.mascot(src='/images/mascot.png')
 
 
-.testflex
-    #toggleBtnWrapper
-      .toggleBtnWrapper-2
-        .toggle
-          p Imgur
-        .toggle
-          p Twitter
-      .toggleBtnWrapper-2#toggleBtnWrapper-2
-        .toggle
-          p Imgur
-        .toggle
-          p twitter
+#togBtnFlexWrap
+    .titletest
+      h1.mulboxTitle Mulbox
+        span.fas.fa-question-circle#helpQuestion   
+      #toggleBtnWrapper
+        .toggleBtnWrapper-2
+          .toggle
+            p Imgur
+          .toggle
+            p Twitter
+        .toggleBtnWrapper-2#toggleBtnWrapper-2
+          .toggle
+            p Imgur
+          .toggle
+            p twitter
+ 
 
-.vanity
+#vanity
 
-  h1.mulboxTitle Mulbox
 
-  button.btn Compact Mode
+
 
 #inboxes
   .inboxWrapper
     textarea#inbox(rows='10' cols='30' placeholder='Write some shit here! ')
 #mulboxes
 
-// About modal btn
-button.btn.btnModal#btnModal About
+button#compactTog.btn Compact Mode
+
   // About modal content
 .modal#modal
   .modalContent
     .modalHeader
       span.close &times;
-      h2 Mulbox 
+      h2.modalText Mulbox
+      p.modalText A textbox manager for writing large comments on social media platforms that impose a character limit.
     .modalBtns
-      p Mulbox is a text manager for social media platforms that splits the text for you as you type!
+      h2.modalText How it works.
+        p.modalText Simply write out your comment in the text area and Mulbox will automagicly split the textboxes for you allowing you to easily copy and paste annoyingly large multi-box comments! YAY!
     .modalFooter
       h3
         i.fab.fa-github

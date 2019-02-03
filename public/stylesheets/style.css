@@ -4,7 +4,7 @@ body{
 	margin: 0;
 }
 
-/* pseudo element before body injects the background image 
+/* pseudo element before body injects the background image */
 body::before{
 	content:'';
 	height: 100vh;
@@ -17,7 +17,7 @@ body::before{
 	filter: blur(8px);
 	-webkit-filter:blur(8px);
 	transition: all 1000ms;
-	position: static;
+	position: absolute;
 	z-index: -2;
 }
 
@@ -25,7 +25,7 @@ body:hover::before{
 	filter: blur(0px);
 	-webkit-filter:blur(0px);
 }
-*/ 
+
 
 /* Global textarea style */
 
@@ -40,13 +40,33 @@ textarea{
 }
 
 .mulboxTitle{
+	
 	font-family: overpass;
 	font-weight: 900;
 	font-size: 90px;
 	color: #efecec;
 	text-shadow: 3px 3px 0px #4d4d4d, 8px 8px 0px rgba(0,0,0,0.1);
-
+	align-items: center;
+	margin: 0;
 }
+
+.titletest{
+	display: flex;
+	justify-content: center;
+}
+
+/* Question mark btn (calls about modal) */
+#helpQuestion{
+	font-size: 18px;
+	padding: .3em;
+	text-shadow: 1.5px 1.5px 0px #4d4d4d, 2px 2px 0px rgba(0,0,0,0.1);
+}
+
+#helpQuestion:hover{
+	color: #bbbbbbe8;
+	text-shadow: 1.5px 1.5px 0px #4d4d4d, 2px 2px 0px rgba(0,0,0,0.1);
+}
+
 
 /* Mascot */
 
@@ -100,25 +120,25 @@ textarea{
 }
 
 /* ------------------------ Wrappers ------------------------ */
-
-.vanity{
+/* Compact mode 
+#vanity{
 	height: 30%;
 	width: 100%;
 	display: flex;
 	align-items: center;
-	transform:translate(0,-8em) ;
+	transform:translate(0,-8em);
 }
 
-.testflex{
+#togBtnFlexWrap{
 	width: 100%;
 	display: flex;
 	justify-content: flex-end;
 	flex-direction: row;
 	position: relative;
 }
-
-/*
-.vanity{
+*/
+/* Normal mode */
+#vanity{
 	height: 30%;
 	width: 100%;
 	display: flex;
@@ -129,19 +149,31 @@ textarea{
 	z-index: 1;
 }
 
-.testflex{
+#togBtnFlexWrap{
 	width: 100%;
 	display: flex;
-	justify-content: flex-end;
-	flex-direction: row;
+	justify-content: space-between;
+	flex-direction: row;	
 }
-*/
+
 /* btntest div contains plus and minus buttons and centers them */
 .btnTest{
 	text-align: center;
 	margin:1em;
 }
 
+#inboxes{
+	display: flex;
+	justify-content: center;
+}
+
+#inbox{
+	max-width: 100vw;
+	max-height: 200px;
+	min-width: 200px;
+	min-height: 50px;
+	resize: both;
+}
 
 /* ------------------------ Mulboxes (textareas) ------------------------  */
 #mulboxes{
@@ -150,7 +182,8 @@ textarea{
 	display: flex;
 	justify-content: flex-start;
 	align-items: center;
-	flex-flow: column wrap;
+	align-content: flex-start;
+	flex-flow: row wrap;
 	z-index: 1;
 	position: relative;
 }
@@ -181,7 +214,7 @@ textarea{
 	margin: auto;
 	padding: 0;
 	border-radius: 0.3rem;
-	width: 30%;
+	width: 50%;
 	box-shadow: 1px 1px 6px rgba(0,0,0,0.3);
 	animation-name: animatetop;
 	animation-duration: 0.4s;
@@ -224,6 +257,17 @@ textarea{
 
 	position: relative;
 	margin: 2em;
+}
+
+.modalText{
+	font-family: overpass;
+}
+
+.modalText p {
+	font-size: 14px;
+	text-align: center;
+	margin-left: 9em;
+	margin-right: 9em;
 }
 
 /* ------------------------ Slider button ------------------------ */
