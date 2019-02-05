@@ -12,24 +12,27 @@ head
 
   //img.mascot(src='/images/mascot.png')
 
+#flexWrap
 
-#togBtnFlexWrap
-      #toggleBtnWrapper
-        .toggleBtnWrapper-2
-          .toggle
-            p Imgur
-          .toggle
-            p Twitter
-        .toggleBtnWrapper-2#toggleBtnWrapper-2
-          .toggle
-            p Imgur
-          .toggle
-            p twitter
- 
+  #dummyFlex
 
-#vanity
-   h1.mulboxTitle Mulbox
-        span.fas.fa-question-circle#helpQuestion   
+  #titleWrap
+    h1.mulboxTitle Mulbox
+          span.fas.fa-question-circle#helpQuestion 
+
+  #togBtn
+        #toggleBtnWrapper
+          .toggleBtnWrapper-2
+            .toggle
+              p Imgur
+            .toggle
+              p Twitter
+          .toggleBtnWrapper-2#toggleBtnWrapper-2
+            .toggle
+              p Imgur
+            .toggle
+              p twitter
+
 
 
 
@@ -52,4 +55,4 @@ button#compactTog.btn Compact Mode
         p.modalText Simply write out your comment in the text area and Mulbox will automagicly split the textboxes for you allowing you to easily copy and paste annoyingly large multi-box comments! YAY!
     .modalFooter
       h3
-        i.fab.fa-github
+        a(href="https://github.com/SamRodrigue/mulbox").fab.fa-github.gitLink

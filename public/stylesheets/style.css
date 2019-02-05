@@ -121,7 +121,7 @@ textarea{
 
 /* ------------------------ Wrappers ------------------------ */
 /* Compact mode 
-#vanity{
+#titleWrap{
 	height: 30%;
 	width: 100%;
 	display: flex;
@@ -129,7 +129,7 @@ textarea{
 	transform:translate(0,-8em);
 }
 
-#togBtnFlexWrap{
+#togBtn{
 	width: 100%;
 	display: flex;
 	justify-content: flex-end;
@@ -138,22 +138,32 @@ textarea{
 }
 */
 /* Normal mode */
-#vanity{
-	height: 30%;
-	width: 100%;
+
+#flexWrap{
+	width:	100%;
+	margin: 0 0 10em;
 	display: flex;
-	align-items: center;
-	flex-direction: column;
-	position: relative;
-	margin: 0;
-	z-index: 1;
+	flex-direction: row;
+	justify-content: center;
 }
 
-#togBtnFlexWrap{
-	width: 100%;
+#dummyFlex{
+	width: 33.3%;
+}
+
+#titleWrap{
+	width: 33.3%;
 	display: flex;
-	justify-content: space-between;
-	flex-direction: row;	
+	justify-content: center;
+	align-items: center;
+	transform: translateY(9.5em);
+
+}
+
+#togBtn{
+	width: 33.3%;
+	display: flex;
+	justify-content: flex-end;
 }
 
 /* btntest div contains plus and minus buttons and centers them */
@@ -180,7 +190,7 @@ textarea{
 	height: 60vh;
 	width: 100%;
 	display: flex;
-	justify-content: flex-start;
+	justify-content: center;
 	align-items: center;
 	align-content: flex-start;
 	flex-flow: row wrap;
@@ -233,14 +243,14 @@ textarea{
 }
 
 .close:hover, .close:focus{
-	color: #000;
+	color: #fff;
 	text-decoration: none;
 	cursor: pointer;
 }
 
 .modalHeader{
 	color: #fff;
-	background-color: grey;
+	background-color: gray;
 	border-radius: 0.2rem;
 }
 
@@ -254,7 +264,6 @@ textarea{
 }
 
 .btnModal{
-
 	position: relative;
 	margin: 2em;
 }
@@ -270,6 +279,15 @@ textarea{
 	margin-right: 9em;
 }
 
+.gitLink{
+	font-size: 25px;
+	color: grey;
+	text-decoration: none;
+}
+
+.gitLink:hover{
+	color: rgb(0, 0, 0);
+}
 /* ------------------------ Slider button ------------------------ */
 
 #toggleBtnWrapper{

@@ -115,18 +115,22 @@ $(document).ready(function() {
   });
 
   var compactTogId = document.getElementById('compactTog');
-  var vanity = document.getElementById('vanity')
-  var togBtn = document.getElementById('togBtnFlexWrap')
+  var title = document.getElementById('titleWrap')
+  var flexWrap = document.getElementById('flexWrap')
   var compactTogBool;
 
   compactTogId.addEventListener('click', function(){
     compactTogBool = !compactTogBool;
     if(compactTogBool) {
-      vanity.style.transform = "translate(0, -8em)"
-      togBtn.style.postion = "static"
+      title.style.transform = "translateY(0em)"
+      title.style.order = "-1"
+      title.style.justifyContent ="flex-start"
+      flexWrap.style.margin = "0em"
     } else {
-      vanity.style.transfrom = "translate(0, 0em)"
-      togBtn.style.postion = "relative"
+      title.style.transform = "translateY(9.5em)"
+      title.style.order = "0"
+      title.style.justifyContent ="center"
+      flexWrap.style.margin = "0 0 10em"
     }
     console.log(compactTogBool); 
   });
