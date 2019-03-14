@@ -11,6 +11,7 @@ Simply write out your comment and Mulbox will automagicly split the textboxes fo
 * npm
 * Express.js
 * jQuery
+* Pug (formerly jade)
 * FontAwesome
 * Clipboard.js
 ## Installation 
