@@ -1,4 +1,4 @@
-var charLimit = 32;
+var charLimit = 280;
 /* w/o jQuery window.onload=function()
   .ready waits for the DOM to be fully loaded
 */
@@ -94,9 +94,11 @@ $(document).ready(function() {
   toggle.addEventListener('click', function() {
     toggleNumber = !toggleNumber;
     if(toggleNumber) {
+      charLimit = 140;
       toggleWrap.style.clipPath = 'inset(0 0 0 50%)';
       toggleWrap.style.backgroundColor = '#89C623';
       } else {
+        charLimit = 280;
         toggleWrap.style.clipPath = 'inset(0 50% 0 0)';
         toggleWrap.style.backgroundColor = '#0084b4';
       }
@@ -127,7 +129,4 @@ $(document).ready(function() {
       setTimeout(function(){flexWrap.style.margin = "0em"; title.style.transform = "translateY(0)";}, 780);
   };
     
-  
-
-
 });
