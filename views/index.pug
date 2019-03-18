@@ -1,8 +1,7 @@
 doctype html
 head
   title Mulbox
-  link(href="http://overpass-30e2.kxcdn.com/overpass.css" rel="stylesheet")
-  link(href="https://fonts.googleapis.com/css?family=Asap" rel="stylesheet")
+  link(href="https://fonts.googleapis.com/css?family=Asap|Overpass" rel="stylesheet")
   link(rel="icon" type="image/x-icon" href="/images/favicon.ico")
   link(rel='stylesheet' type='text/css' href='stylesheets/style.css')
   link(rel='stylesheet' href='https://use.fontawesome.com/releases/v5.4.1/css/all.css' integrity='sha384-5sAR7xN1Nv6T6+dT2mhtzEpVJvfS3NScPQTrOxhwjIuvcA67KV2R5Jz6kr4abQsz' crossorigin='anonymous')
@@ -19,6 +18,8 @@ head
   #titleWrap
     h1.mulboxTitle Mulbox
           span.fas.fa-question-circle#helpQuestion 
+    form
+      input#charCount(type="number" size="520" min="10" max="5000" placeholder="only #s")
 
   #togBtn
         #toggleBtnWrapper
