@@ -14,6 +14,7 @@ Simply write out your comment and Mulbox will automagicly split the textboxes fo
 * Pug (formerly jade)
 * FontAwesome
 * Clipboard.js
+* Stretchy.js
 ## Installation 
 ```
 Clone git repo

@@ -19,7 +19,8 @@ head
   #titleWrap
     h1.mulboxTitle Mulbox
           span.fas.fa-question-circle#helpQuestion 
-    form
+    p#displayCharLim Character Limit: 
+    //form
       input#charCount(type="number" size="520" min="10" max="5000" placeholder="only #s")
 
   #togBtn
@@ -40,7 +41,7 @@ head
 
 #inboxes
   .inboxWrapper
-    textarea#inbox(rows='10' cols='30' placeholder='Write your comment here! ')
+    textarea#inbox(placeholder='Write your comment here! ')
 #mulboxes
   // About modal content
 .modal#modal

@@ -46,7 +46,7 @@ $(document).ready(function() {
     // Add a box
     $("#mulboxes").append(`
       <div class="mulboxWrapper">
-        <textarea readonly class="mulbox" id="` + id + `" maxlength="140" rows="10" cols="30">` + value + `</textarea>
+        <textarea readonly class="mulbox" id="` + id + `" rows="10" cols="30">` + value + `</textarea>
         <button class="btn btnCopy" data-clipboard-action="copy" data-clipboard-target="#`+ uniId +`">
           <i class="fas fa-copy"></i>
         </button>
@@ -85,21 +85,25 @@ $(document).ready(function() {
       modal.style.display = 'none';
     }
   }
-// Slider button style
-
+// Slider button
   var toggle = document.getElementById('toggleBtnWrapper');
   var toggleWrap = document.getElementById('toggleBtnWrapper-2');
   var toggleNumber;
+  // Display Current Character Limit
+  var el = document.getElementById('displayCharLim');
+  el.innerHTML = "Character Limit: " + charLimit.toString();
 
   toggle.addEventListener('click', function() {
     toggleNumber = !toggleNumber;
     if(toggleNumber) {
       charLimit = 140;
+      el.innerHTML = "Character Limit: " + charLimit.toString();
       toggleWrap.style.clipPath = 'inset(0 0 0 50%)';
       toggleWrap.style.backgroundColor = '#89C623';
       } else {
         charLimit = 280;
         toggleWrap.style.clipPath = 'inset(0 50% 0 0)';
+        el.innerHTML = "Character Limit: " + charLimit.toString();
         toggleWrap.style.backgroundColor = '#0084b4';
       }
     console.log(toggleNumber);
@@ -107,7 +111,6 @@ $(document).ready(function() {
 
   var clipboard = new ClipboardJS('.btnCopy');
 
-   
   clipboard.on('success', function(e) {
     console.log(e);
   });
@@ -117,16 +120,16 @@ $(document).ready(function() {
   });
 
 
-  //function compactMode(){}
+
   var compactTogId = document.getElementById('inbox');
-  var inbox = document.getElementById('inbox')
   var title = document.getElementById('titleWrap')
   var flexWrap = document.getElementById('flexWrap')
-  var compactTogBool;
 
   compactTogId.oninput = function() {
       setTimeout(function(){flexWrap.style.animation = "animateMargin .5s"; title.style.animation= "animateCompact .5s";}, 300);
       setTimeout(function(){flexWrap.style.margin = "0em"; title.style.transform = "translateY(0)";}, 780);
   };
+
+
     
 });
